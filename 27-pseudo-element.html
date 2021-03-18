@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS</title>
+  <style>
+    html, body {
+      margin: 0;
+    }
+
+    .header {
+      width: 100%;
+      height: 200px;
+      background-color: rgb(190, 124, 97);
+    }
+
+    .header::before {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 50px;
+      background: #fff;
+    }
+
+    .header::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 50px;
+      background: #fff;
+    }
+
+    h1:first-letter {
+      font-size: 50px;
+      color: red;
+    }
+    h2::selection {
+      background: red;
+    }
+
+  </style>
+
+</head>
+<body>
+<div class="header" data-title="Hello world đây là attr của class header"></div>
+<br>
+<h1>Pseudo elements</h1>
+<h2>Bôi đen dòng này để :selection hoạt động</h2>
+<ul>
+  <li>:before</li>
+  <li>:first-letter</li>
+  <li>:first-line</li>
+  <li>:selection</li>
+  <li>:after</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS</title>
+  <style>
+    html, body {
+      margin: 0;
+    }
+
+    .header {
+      width: 100%;
+      height: 200px;
+      background-color: rgb(190, 124, 97);
+    }
+
+    a::after {
+      content: attr(href);
+    }
+
+    .header::after {
+      content: attr(data-title);
+    }
+
+    h1:hover {
+      color: red;
+    }
+
+    h1:active {
+      color: blue;
+    }
+
+    li:first-child {
+      color: green;
+    }
+
+    li:last-child {
+      color: cornflowerblue;
+      font-size: 40px;
+    }
+
+  </style>
+</head>
+<body>
+<div class="header" data-title="Hello world đây là attr của class header"></div>
+<br>
+<a href="https://fullstack.edu.vn/">Học lập trình tại: </a>
+<h1>Pseudo classes</h1>
+<ul>
+  <li>:first-child</li>
+  <li>:hover</li>
+  <li>:active</li>
+  <li>:root</li>
+  <li>:last-child</li>
+</ul>
+</body>
+</html>

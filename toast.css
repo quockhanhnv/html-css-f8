@@ -16,6 +16,11 @@ body > div {
     margin: auto;
 }
 
+#toast {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+}
 
 .toast {
     display: flex;
@@ -25,7 +30,27 @@ body > div {
     border-left: 4px solid;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
     padding: 20px 0;
+    min-width: 400px;
+    max-width: 450px;
+    animation: slideInLeft ease .3s, fadeOut linear 1s 2s forwards;
+}
 
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateX(0);
+    }
 }
 
 .toast + .toast {
@@ -52,8 +77,9 @@ body > div {
 
 .toast__msg {
     font-size: 14px;
-    margin-top: 4px;
+    margin-top: 6px;
     color: #888;
+    line-height: 1.5;
 }
 
 .toast__close {
@@ -96,4 +122,8 @@ body > div {
 
 .toast--error .toast__icon {
     color: #ff623d;
+}
+
+.toast__body {
+    flex-grow: 1;
 }

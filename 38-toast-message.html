@@ -8,94 +8,48 @@
   <title>Toast</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   <link rel="stylesheet" href="toast.css">
+  <link rel="stylesheet" href="bem-btn.css">
 </head>
 <body>
   <div id="toast">
-    <div class="toast toast--success">
-      <div class="toast__icon">
-        <i class="fas fa-check-circle"></i>
-      </div>
-      <div class="toast__body">
-        <h3 class="toast__title">Success</h3>
-        <p class="toast__msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet consequatur hic omnis perferendis porro quidem repellat repellendus sequi tempore!</p>
-      </div>
-      <div class="toast__close">
-        <i class="fas fa-times"></i>
-      </div>
-    </div>
 
-    <div class="toast toast--success">
-      <div class="toast__icon">
-        <i class="fas fa-check-circle"></i>
-      </div>
-      <div class="toast__body">
-        <h3 class="toast__title">Success</h3>
-        <p class="toast__msg">Lorem ipsum do!</p>
-      </div>
-      <div class="toast__close">
-        <i class="fas fa-times"></i>
-      </div>
-    </div>
   </div>
+
   <div>
-    <!-- Success -->
-<!--    <div class="toast toast&#45;&#45;success">-->
-<!--      <div class="toast__icon">-->
-<!--        <i class="fas fa-check-circle"></i>-->
-<!--      </div>-->
-<!--      <div class="toast__body">-->
-<!--        <h3 class="toast__title">Success</h3>-->
-<!--        <p class="toast__msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet consequatur hic omnis perferendis porro quidem repellat repellendus sequi tempore!</p>-->
-<!--      </div>-->
-<!--      <div class="toast__close">-->
-<!--        <i class="fas fa-times"></i>-->
-<!--      </div>-->
-<!--    </div>-->
-
-    <!-- Info -->
-<!--    <div class="toast toast&#45;&#45;info">-->
-<!--      <div class="toast__icon">-->
-<!--        <i class="fas fa-check-circle"></i>-->
-<!--      </div>-->
-<!--      <div class="toast__body">-->
-<!--        <h3 class="toast__title">Success</h3>-->
-<!--        <p class="toast__msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet consequatur hic omnis perferendis porro quidem repellat repellendus sequi tempore!</p>-->
-<!--      </div>-->
-<!--      <div class="toast__close">-->
-<!--        <i class="fas fa-times"></i>-->
-<!--      </div>-->
-<!--    </div>-->
-
-    <!-- Warning -->
-<!--    <div class="toast toast&#45;&#45;warning">-->
-<!--      <div class="toast__icon">-->
-<!--        <i class="fas fa-check-circle"></i>-->
-<!--      </div>-->
-<!--      <div class="toast__body">-->
-<!--        <h3 class="toast__title">Success</h3>-->
-<!--        <p class="toast__msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet consequatur hic omnis perferendis porro quidem repellat repellendus sequi tempore!</p>-->
-<!--      </div>-->
-<!--      <div class="toast__close">-->
-<!--        <i class="fas fa-times"></i>-->
-<!--      </div>-->
-<!--    </div>-->
-
-    <!-- Error -->
-<!--    <div class="toast toast&#45;&#45;error">-->
-<!--      <div class="toast__icon">-->
-<!--        <i class="fas fa-check-circle"></i>-->
-<!--      </div>-->
-<!--      <div class="toast__body">-->
-<!--        <h3 class="toast__title">Success</h3>-->
-<!--        <p class="toast__msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet consequatur hic omnis perferendis porro quidem repellat repellendus sequi tempore!</p>-->
-<!--      </div>-->
-<!--      <div class="toast__close">-->
-<!--        <i class="fas fa-times"></i>-->
-<!--      </div>-->
-<!--    </div>-->
+    <div class="btn btn--success">Show success toast</div>
+    <div class="btn btn--danger">Show error toast</div>
   </div>
 
+  <script>
+    function toast({ title = '', message = '', type = 'info', duration = 3000}) {
+      const main = document.getElementById('toast')
 
+      if (main) {
+        toast = document.createElement('div')
+        toast.classList.add('toast', `toast--${type}`)
+        toast.innerHTML = `
+          <div class="toast__icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="toast__body">
+            <h3 class="toast__title">${title}</h3>
+            <p class="toast__msg">${message}</p>
+          </div>
+          <div class="toast__close">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>`
 
+        main.appendChild(toast)
+      }
+    }
+
+    toast({
+      title: 'Success',
+      message: 'Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOs)',
+      type: 'success',
+      duration: 3000
+    })
+  </script>
 </body>
 </html>

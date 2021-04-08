@@ -16,20 +16,41 @@
   </div>
 
   <div>
-    <div class="btn btn--success">Show success toast</div>
-    <div class="btn btn--danger">Show error toast</div>
+    <div onclick="showSuccessToast();" class="btn btn--success">Show success toast</div>
+    <div onclick="showErrorToast();" class="btn btn--danger">Show error toast</div>
   </div>
 
   <script>
     function toast({ title = '', message = '', type = 'info', duration = 3000}) {
-      const main = document.getElementById('toast')
+      const main = document.getElementById('toast');
 
       if (main) {
-        toast = document.createElement('div')
-        toast.classList.add('toast', `toast--${type}`)
+        const toast = document.createElement('div');
+        // auto remove toast
+        const autoRemoveId =  setTimeout(function () {
+          main.removeChild(toast)
+        }, duration + 1000);
+
+        // auto remove toast when clicked
+
+        toast.onclick = function (e) {
+          if (e.target.closest('.toast__close')) {
+            main.removeChild(toast)
+            clearTimeout(autoRemoveId);
+          }
+        }
+        const icons = {
+          success: "fas fa-check-circle",
+          info: "fas fa-info-circle",
+          warning: "fas fa-exclamation-circle",
+          error: "fas fa-exclamation-circle"
+        };
+        const delay = (duration / 1000).toFixed(2);
+        toast.classList.add('toast', `toast--${type}`);
+        toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`
         toast.innerHTML = `
           <div class="toast__icon">
-            <i class="fas fa-check-circle"></i>
+            <i class="${icons[type]}"></i>
           </div>
           <div class="toast__body">
             <h3 class="toast__title">${title}</h3>
@@ -40,16 +61,28 @@
           </div>
         </div>`
 
-        main.appendChild(toast)
+        main.appendChild(toast);
       }
     }
 
-    toast({
-      title: 'Success',
-      message: 'Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOs)',
-      type: 'success',
-      duration: 3000
-    })
+
+
+    function showSuccessToast() {
+      toast({
+        title: 'Success',
+        message: 'Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOs)',
+        type: 'success',
+        duration: 3000
+      });
+    }
+    function showErrorToast() {
+      toast({
+        title: 'Warning',
+        message: 'Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOs)',
+        type: 'warning',
+        duration: 3000
+      });
+    }
   </script>
 </body>
 </html>

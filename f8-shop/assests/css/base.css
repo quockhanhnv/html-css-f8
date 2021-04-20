@@ -1,0 +1,36 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    /* tương đương 16px và khi khai báo font-size 1rem thì nó tương đương 16px */
+    /*font-size: 100%;*/
+
+    /* còn đây là tip */
+    font-size: 62.5%; /* tương đương 1 rem = 10px */
+
+    line-height: 1.6rem; /* 16px */
+    font-family: 'Roboto', sans-serif; /* Khi chưa tải được font Roboto thì sẽ dùng sans-serif */
+    box-sizing: border-box;
+}
+
+.grid {
+    width: 1200px; /* với màn hình ? 1200px thì kích thước tối đa chỉ là 1200px */
+    max-width: 100%; /* với màn hình bé hơn 1200px thì kích thước tối da là full màn chứ ko bị vượt quá 1200px */
+    margin: 0 auto; /* căn giữa khi nằm trong 1 khối khác */
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,74 @@
+.header {
+    height: 120px;
+    background-image: linear-gradient(0, #fe6433, #f53e2d);
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__navbar-list {
+    list-style-type: none;
+    padding-left: 0; /* ul có padding-left mặc định là 40px */
+    margin-top: 10px;
+}
+
+.header__navbar-item {
+    margin: 0 8px;
+    position: relative; /* phục vụ cho dấu gạch sau đăng ký*/
+    min-height: 26px;
+}
+
+.header__navbar-item,
+.header_navbar-item-link {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.header__navbar-item:hover,
+.header_navbar-icon-link:hover,
+.header_navbar-item-link:hover {
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+.header__navbar-item,
+.header_navbar-item-link,
+.header_navbar-icon-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.header__navbar-item--strong {
+    font-weight: 400;
+}
+
+.header__navbar-item--separate:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-left: 1px solid #FB9086;
+    height: 16px;
+    right: -9px;
+    top: 50%; /* kết hợp căn giữa border theo height*/
+    transform: translateY(-50%); /* kết hợp căn giữa border theo height dịch chuyển lên 50% theo chính chiều cao của nó */
+}
+
+.header_navbar-icon-link {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.header_navbar-icon {
+    font-size: 1.8rem;
+    margin: 0 4px;
+}
+
+.header__navbar-title--no-pointer {
+    cursor: text;
+    color: var(--white-color);
+}

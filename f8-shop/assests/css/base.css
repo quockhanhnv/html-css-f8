@@ -29,16 +29,6 @@ html {
 
 /* Responsive */
 
-.grid {
-    width: 1200px; /* với màn hình ? 1200px thì kích thước tối đa chỉ là 1200px */
-    max-width: 100%; /* với màn hình bé hơn 1200px thì kích thước tối da là full màn chứ ko bị vượt quá 1200px */
-    margin: 0 auto; /* căn giữa khi nằm trong 1 khối khác */
-}
-
-.grid__full-width {
-    width: 100%;
-}
-
 .grid__row {
     display: flex;
     flex-wrap: wrap;
